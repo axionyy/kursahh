@@ -10,4 +10,14 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="reg">"Регистрация"</string>
+    <string name="zareg">"Зарегистрироваться"</string>
+    <string name="enter">"Войти"</string>
+    <string name="password">"Пароль"</string>
+    <string name="login">"Логин"</string>
+    <string name="createProfile">"Создать учетную запись"</string>
+    <string name="enterProfile">"Войти в учетную запись"</string>
+    <string name="author">"Авторизация"</string>
+    <string name="name">"Имя"</string>
+    <string name="surname">"Фамилия"</string>
 </resources>

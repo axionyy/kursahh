@@ -17,4 +17,9 @@ public class RegistrationActivity extends AppCompatActivity {
         Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void RegistrationNextPage2(View v) {
+        Intent intent = new Intent(RegistrationActivity.this, RegistrationActivity2.class);
+        startActivity(intent);
+    }
 }
