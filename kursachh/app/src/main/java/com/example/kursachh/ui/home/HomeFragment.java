@@ -31,6 +31,8 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         binding.resept1.setOnClickListener(v -> showCustomDialog());
+        binding.resept2.setOnClickListener(v -> showCustomDialog());
+        binding.resept3.setOnClickListener(v -> showCustomDialog());
 
         return root;
     }

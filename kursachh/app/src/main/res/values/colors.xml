@@ -6,7 +6,10 @@
     <color name="green">#8cefaa</color>
     <color name="blue">#8bd3e7</color>
     <color name="white_grey">#e7e7e7</color>
-    <color name="orange">#f27019</color>
+    <color name="orange">#ff851a</color>
+    <color name="gray">#a6a6a6</color>
+
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
