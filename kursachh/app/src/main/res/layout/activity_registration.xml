@@ -53,7 +53,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
 
-        android:hint="@string/password"
+        android:hint="@string/passwordText"
         android:textSize="25sp"
         android:background="@color/green"
 

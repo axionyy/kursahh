@@ -1,6 +1,7 @@
 package com.example.kursachh;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +12,11 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.app.DatePickerDialog;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
-import java.util.Calendar;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 public class RegistrationActivity2 extends AppCompatActivity {
     String[] lifestules = { "Активный", "Сидячий", "Лежачий", "Смешанный"};
@@ -53,7 +52,6 @@ public class RegistrationActivity2 extends AppCompatActivity {
         spinnerLifestyle.setOnItemSelectedListener(itemSelectedListener);
 
 
-
         final Calendar defaultCalendar = Calendar.getInstance();
         defaultCalendar.set(1950, Calendar.JANUARY, 1);
 
@@ -70,9 +68,17 @@ public class RegistrationActivity2 extends AppCompatActivity {
             int month = c.get(Calendar.MONTH);
             int day = c.get(Calendar.DAY_OF_MONTH);
 
-            @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrationActivity2.this, R.style.CustomDatePickerDialog,
+            // Получить текущую дату для ограничения
+            c.set(year, month, day);
+            long today = c.getTimeInMillis();
+
+            @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog
+                    (RegistrationActivity2.this, R.style.CustomDatePickerDialog,
                     (view, year1, monthOfYear, dayOfMonth) -> ageValueText.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year1),
                     year, month, day);
+            // Установить максимальную дату для выбора
+            datePickerDialog.getDatePicker().setMaxDate(today);
+
             datePickerDialog.show();
         });
 

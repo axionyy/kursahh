@@ -21,10 +21,23 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
+    private AuthManager authManager;
+    private DataManager dataManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization);
+
+        authManager = new AuthManager(this);
+        dataManager = new DataManager(this);
+
+        if (authManager.isLoggedIn()) {
+            Intent intent = new Intent(this, NavigationRun.class);
+            startActivity(intent);
+            finish();
+        }
+
         EditText loginEditText = findViewById(R.id.loginInputAutorization);
         EditText passwordEditText = findViewById(R.id.passwordInputAutorization);
         Button buttonSigIn = findViewById(R.id.enterProfileAutorization);
@@ -50,8 +63,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.isSuccessful()){
                             User user = response.body();
+                            authManager.setLoggedIn(true);
+                            dataManager.saveData(user.toString()); // Сохраняем данные пользователя
+                            Toast.makeText(MainActivity.this, "Вы вошли в аккаунт!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, NavigationRun.class);
                             startActivity(intent);
+                            finish();
                         }
                         else {
                             Toast.makeText(MainActivity.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
